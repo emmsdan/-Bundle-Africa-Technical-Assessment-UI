@@ -1,15 +1,10 @@
-import React from 'react'
-import './invoice-header.scss'
+import React from "react";
+import "./invoice.scss";
 export default function InvoiceHeader() {
-    const randomId = String(Math.random() + 2).split('.')[1]
-    return <header>
-        <div className={'logo'}>
-            BundleAfrica
-            <span>technical assessment</span>
-        </div>
-        <div className={'about'}>
-            Voucher
-            <span>invoice id: {randomId}</span>
-        </div>
+  return (
+    <header className="header">
+      <img src="https://bundle-static-contents.s3.amazonaws.com/images/Bundle-logo.svg" alt={'Bundle Africa logo'} />
+      <h3>Customer Voucher</h3>
     </header>
+  );
 }

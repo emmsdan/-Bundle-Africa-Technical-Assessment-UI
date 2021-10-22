@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.2/css/simple-line-icons.css");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  background-color: #fcf1d9;
+  color: #343a40;
+}
+a {
+  color: #0e7aea;
+  text-decoration: none;
+}
+
+h6 {
+  color: #9aa3ab;
+  font-weight: 300;
+  line-height: 15px;
+}
+
+h5 {
+  color: #99a1aa;
+  font-weight: 300;
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 13px;
+  color: #97a2ad;
+}
+
+h3 {
+  color: #58636a;
+  font-weight: 500;
+}
+
+.container {
+  width: 60%;
+  height: 40%;
+  min-width: 636px;
+  min-height: 456px;
+  margin: auto;
+  margin-top: 10%;
+  overflow: hidden;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-box-shadow: 0px 5px 21px 0px rgba(128, 128, 128, 0.2);
+  -moz-box-shadow: 0px 5px 21px 0px rgba(128, 128, 128, 0.2);
+  box-shadow: 0px 5px 21px 0px rgba(128, 128, 128, 0.2);
+  display: flex;
+  position: relative;
+}

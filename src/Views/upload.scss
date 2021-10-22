@@ -1,0 +1,53 @@
+.upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  cursor: pointer;
+  position: relative;
+  font-weight: bold;
+
+  .input {
+    z-index: 100;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    border: 1px solid #1b1e21;
+    background-color: #1b1e21;
+    color: #fcf1d9;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+    text-align: center;
+    input {
+      display: none;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      background-color: #1b1e21;
+      color: #fff;
+      cursor: pointer;
+      max-width: 150px;
+    }
+  }
+}
+.pulse {
+  animation: pulse 2s infinite;
+  animation-timing-function: linear;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(5.1);
+    100% {
+      transform: scale(1);
+    }
+  }
+}

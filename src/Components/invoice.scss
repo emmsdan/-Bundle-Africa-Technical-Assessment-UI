@@ -1,0 +1,41 @@
+.header {
+  overflow: hidden;
+  border-bottom: 1px solid #d7e2e7;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+
+  img {
+    width: 100px;
+  }
+}
+
+.footer {
+  overflow: hidden;
+  border-top: 1px solid #d7e2e7;
+  margin-top: 40px;
+  padding-top: 30px;
+
+  a {
+    font-size: 13px;
+    font-weight: 500;
+    float: left;
+  }
+  h6 {
+    color: #7a838d;
+    text-align: right;
+    margin-top: 0px !important;
+  }
+}
+table {
+  width: 100%;
+  td,
+  th {
+    text-align: left;
+    padding: 5px;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+}
