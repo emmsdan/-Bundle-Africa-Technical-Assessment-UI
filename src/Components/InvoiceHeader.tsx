@@ -1,6 +1,6 @@
 import React from "react";
 import "./invoice.scss";
-export default function InvoiceHeader() {
+export default function InvoiceHeader(): React.ReactElement {
   return (
     <header className="header">
       <img

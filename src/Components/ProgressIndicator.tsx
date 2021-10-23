@@ -8,7 +8,11 @@ export default function ProgressIndicator({
   return <div className="progress" style={{ width: percentage + "%" }} />;
 }
 
-export const RandomLoader = ({ length }: { length: number }) => {
+export const RandomLoader = ({
+  length,
+}: {
+  length: number;
+}): React.ReactElement => {
   return (
     <div className={"indicator"}>
       {Array.from(Array(length).keys()).map((ind) => (

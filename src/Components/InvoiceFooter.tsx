@@ -1,6 +1,6 @@
 import React from "react";
 import "./invoice.scss";
-export default function InvoiceFooter() {
+export default function InvoiceFooter(): React.ReactElement {
   const randomId = String(Math.random() + 2).split(".")[1];
   return (
     <footer className="footer">

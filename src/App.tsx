@@ -4,9 +4,14 @@ import Invoice from "./Views/Invoice";
 import Upload from "./Views/Upload";
 import { VoucherContext } from "./context/customer";
 
-function App() {
-  const [vouchers, updateVoucher] = React.useState<{ data: any[], meta: {}}>({ data: [], meta: {}});
-  const value: any = React.useMemo(() => ({ vouchers, updateVoucher }), [vouchers]);
+function App(): React.ReactElement {
+  const [vouchers, updateVoucher] = React.useState<{ data: any[]; meta: {} }>({
+    data: [],
+    meta: {},
+  });
+  const value: any = React.useMemo(() => ({ vouchers, updateVoucher }), [
+    vouchers,
+  ]);
 
   return (
     <VoucherContext.Provider value={value}>

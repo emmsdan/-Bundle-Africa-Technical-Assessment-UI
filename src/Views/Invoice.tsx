@@ -3,11 +3,11 @@ import InvoiceHeader from "../Components/InvoiceHeader";
 import "./invoice.scss";
 import InvoiceFooter from "../Components/InvoiceFooter";
 import InvoiceTable from "../Components/InvoiceTable";
-import {VoucherContext} from "../context/customer";
-import {useHistory} from "react-router-dom";
-export default function Invoice() {
+import { VoucherContext } from "../context/customer";
+import { useHistory } from "react-router-dom";
+export default function Invoice(): React.ReactElement {
   const { vouchers } = React.useContext(VoucherContext);
-  const history = useHistory()
+  const history = useHistory();
 
   const headers = [
     "No",
@@ -16,78 +16,12 @@ export default function Invoice() {
     "Validity",
     "Price (N)",
   ];
-  const options = [
-    {
-      customerID: 1,
-      customerFirstName: "Lanre",
-      orderValue: 17200,
-      validity: 10,
-      price: 1000,
-    },
-    {
-      customerID: 2,
-      customerFirstName: "john",
-      orderValue: 11454,
-      validity: 10,
-      price: 1000,
-    },
-    {
-      customerID: 2,
-      customerFirstName: "john",
-      orderValue: 11454,
-      validity: 10,
-      price: 1000,
-    },
-    {
-      customerID: 2,
-      customerFirstName: "john",
-      orderValue: 11454,
-      validity: 10,
-      price: 1000,
-    },
-    {
-      customerID: 2,
-      customerFirstName: "john",
-      orderValue: 11454,
-      validity: 10,
-      price: 1000,
-    },
-    {
-      customerID: 2,
-      customerFirstName: "john",
-      orderValue: 11454,
-      validity: 10,
-      price: 1000,
-    },
-    {
-      customerID: 2,
-      customerFirstName: "john",
-      orderValue: 11454,
-      validity: 10,
-      price: 1000,
-    },
-    {
-      customerID: 2,
-      customerFirstName: "john",
-      orderValue: 11454,
-      validity: 10,
-      price: 1000,
-    },
-    {
-      customerID: 2,
-      customerFirstName: "john",
-      orderValue: 11454,
-      validity: 10,
-      price: 1000,
-    },
-  ];
 
-
-  React.useEffect(()=>{
-    if (!vouchers || vouchers.data.length <=0){
-      history.push('/')
+  React.useEffect(() => {
+    if (!vouchers || vouchers.data.length <= 0) {
+      history.push("/");
     }
-  }, [vouchers])
+  }, [vouchers, history]);
   return (
     <>
       <div className="container">
@@ -106,7 +40,9 @@ export default function Invoice() {
                 <br />
                 <span>
                   N
-                  {Intl.NumberFormat("en", {}).format(vouchers.meta.totalAmount)}
+                  {Intl.NumberFormat("en", {}).format(
+                    vouchers.meta.totalAmount
+                  )}
                 </span>
               </p>
             </div>
@@ -116,7 +52,11 @@ export default function Invoice() {
                 Total Validity:
                 <br />
                 <span>
-                  {Intl.NumberFormat("en", {}).format(vouchers.meta.totalValidity)} days</span>
+                  {Intl.NumberFormat("en", {}).format(
+                    vouchers.meta.totalValidity
+                  )}{" "}
+                  days
+                </span>
               </p>
             </div>
             <div className="entry">
@@ -126,7 +66,9 @@ export default function Invoice() {
                 <br />
                 <span>
                   N
-                  {Intl.NumberFormat("en",{}).format(vouchers.meta.totalOrderValue)}
+                  {Intl.NumberFormat("en", {}).format(
+                    vouchers.meta.totalOrderValue
+                  )}
                 </span>
               </p>
             </div>
