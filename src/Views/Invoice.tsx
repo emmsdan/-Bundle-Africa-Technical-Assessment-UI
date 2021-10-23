@@ -3,7 +3,12 @@ import InvoiceHeader from "../Components/InvoiceHeader";
 import "./invoice.scss";
 import InvoiceFooter from "../Components/InvoiceFooter";
 import InvoiceTable from "../Components/InvoiceTable";
+import {VoucherContext} from "../context/customer";
+import {useHistory} from "react-router-dom";
 export default function Invoice() {
+  const { vouchers } = React.useContext(VoucherContext);
+  const history = useHistory()
+
   const headers = [
     "No",
     "Customer Name",
@@ -77,11 +82,12 @@ export default function Invoice() {
     },
   ];
 
-  const data = {
-    totalAmount: 1234,
-    totalValidity: 30,
-    totalOrderValue: 45678,
-  };
+
+  React.useEffect(()=>{
+    if (!vouchers || vouchers.data.length <=0){
+      history.push('/')
+    }
+  }, [vouchers])
   return (
     <>
       <div className="container">
@@ -100,9 +106,7 @@ export default function Invoice() {
                 <br />
                 <span>
                   N
-                  {Intl.NumberFormat("en-IN", {
-                    maximumSignificantDigits: 3,
-                  }).format(data.totalAmount)}
+                  {Intl.NumberFormat("en", {}).format(vouchers.meta.totalAmount)}
                 </span>
               </p>
             </div>
@@ -111,7 +115,8 @@ export default function Invoice() {
               <p>
                 Total Validity:
                 <br />
-                <span>{data.totalValidity} days</span>
+                <span>
+                  {Intl.NumberFormat("en", {}).format(vouchers.meta.totalValidity)} days</span>
               </p>
             </div>
             <div className="entry">
@@ -121,9 +126,7 @@ export default function Invoice() {
                 <br />
                 <span>
                   N
-                  {Intl.NumberFormat("en-IN", {
-                    maximumSignificantDigits: 3,
-                  }).format(data.totalOrderValue)}
+                  {Intl.NumberFormat("en",{}).format(vouchers.meta.totalOrderValue)}
                 </span>
               </p>
             </div>
@@ -133,7 +136,7 @@ export default function Invoice() {
           <InvoiceHeader />
 
           <section className="content">
-            <InvoiceTable headers={headers} options={options} />
+            <InvoiceTable headers={headers} options={vouchers.data} />
           </section>
 
           <InvoiceFooter />

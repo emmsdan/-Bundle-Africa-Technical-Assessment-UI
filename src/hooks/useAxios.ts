@@ -1,5 +1,5 @@
 import React from "react";
-import axios, { Method, AxiosRequestConfig } from "axios";
+import axios, {Method, AxiosRequestConfig, AxiosResponse} from "axios";
 
 axios.defaults.baseURL = "http://bundle-africa.emmsdan.com.ng";
 type Props = {
@@ -12,24 +12,25 @@ const useAxios = ({
   url,
   method,
   headers = {},
-    ...options
+  ...options
 }: Props | AxiosRequestConfig) => {
-
-  const fetchData = async (data: FormData | {[key: string]: string|number}) => {
+  const fetchData = async (
+    data: FormData | { [key: string]: string | number }
+  ): Promise<{ response: unknown; error: null | string }> => {
     try {
       const res = await axios({
         method,
         url,
         headers,
         data,
-        ...options
-      })
-      return {response: res.data, error: null};
-    } catch (err) {
-      return {response: null, error: err};
+        ...options,
+      });
+      return { response: res.data, error: null };
+    } catch (err: any) {
+      return { response: null, error: err.message };
     }
   };
-  return fetchData
+  return fetchData;
 };
 
 export default useAxios;

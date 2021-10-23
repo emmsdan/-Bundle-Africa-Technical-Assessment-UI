@@ -4,6 +4,7 @@
   height: 457px;
   border-radius: 5px 0 0 5px;
   color: #fcf1d9;
+  z-index: 1;
 }
 
 .info-box {
@@ -53,15 +54,27 @@ span {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  animation: fade .8s ease-in-out;
+
 }
 
 .content {
-  max-height: 70%;
+  height: 55%;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
   overflow-y: scroll;
+}
+
+
+@keyframes fade {
+  from {
+    transform: translate(-1000px);
+  }
+  to {
+    transform:  translate(0);
+  }
 }

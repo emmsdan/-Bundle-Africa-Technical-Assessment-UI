@@ -20,18 +20,18 @@ export default function InvoiceTable({ headers, options }: Props) {
           <th>{title}</th>
         ))}
       </tr>
-      {options.map((row) => (
+      {options.map((row, ind) => (
         <tr>
-          <td>{row.customerID}</td>
-          <td>{row.customerFirstName}</td>
+          <td>{row.customerID || ind+1}</td>
+          <td>{row.customerFirstName || 'N/A'}</td>
           <td>
-            {Intl.NumberFormat("en-IN", { maximumSignificantDigits: 3 }).format(
+            {Intl.NumberFormat("en", {}).format(
               row.orderValue
             )}
           </td>
           <td>{row.validity}</td>
           <td>
-            {Intl.NumberFormat("en-IN", { maximumSignificantDigits: 3 }).format(
+            {Intl.NumberFormat("en", {}).format(
               row.price
             )}
           </td>
