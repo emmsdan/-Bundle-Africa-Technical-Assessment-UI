@@ -3,3 +3,39 @@
 # Assignment 2: Rewarder
 
 ### URL [ui.bundle-africa.emmsdan.com](ui.bundle-africa.emmsdan.com)
+### API [http://bundle-africa.emmsdan.com.ng](http://bundle-africa.emmsdan.com.ng)
+
+
+#### App is hosted on Netlify
+
+### Installation
+```bash
+yarn install 
+```
+```bash
+npm install 
+```
+
+### Run app
+```bash
+yarn dev 
+```
+```bash
+npm run dev
+```
+
+### Run Test
+```bash
+yarn test 
+```
+```bash
+npm run test
+```
+
+### Run Build
+```bash
+yarn build 
+```
+```bash
+npm run build
+```
