@@ -5,27 +5,29 @@ import ProgressIndicator, {
   RandomLoader,
 } from "../Components/ProgressIndicator";
 import { VoucherContext } from "../context/customer";
-import {SubmitFile} from "../shared/function";
+import { SubmitFile } from "../shared/function";
 export default function Upload(): React.ReactElement {
   const [loading, setLoading] = React.useState(false);
   const [width, setWidth] = React.useState(10);
   const history = useHistory();
   const { updateVoucher } = React.useContext(VoucherContext);
 
-  const fileUploadHandler = SubmitFile(setWidth)(setLoading, (err, response)=>{
-    if (err) {
-      return;
+  const fileUploadHandler = SubmitFile(setWidth)(
+    setLoading,
+    (err, response) => {
+      if (err) {
+        return;
+      }
+      updateVoucher(response.data);
+      history.push("/invoice");
     }
-    updateVoucher(response.data)
-    history.push('/invoice')
-  })
+  );
   return (
-    <label className="upload-container">
+    <label className="upload-container" role={'presentation'}>
+      <h2>Assignment 2: Rewarder</h2>
       {!loading ? (
         <div className="input" role={"button"}>
-          <div>
-            Select ".csv" file to upload <sup title="required">*</sup>
-          </div>
+          <div>Select ".csv" file to upload</div>
           <input
             type="file"
             accept="text/csv,application/csv,.csv"

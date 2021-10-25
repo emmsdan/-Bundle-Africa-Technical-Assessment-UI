@@ -19,22 +19,22 @@ export default function InvoiceTable({
   return (
     <table>
       <thead>
-      <tr>
-        {headers.map((title) => (
-          <th key={title}>{title}</th>
-        ))}
-      </tr>
+        <tr>
+          {headers.map((title) => (
+            <th key={title}>{title}</th>
+          ))}
+        </tr>
       </thead>
       <tbody>
-      {options.map((row, ind) => (
-        <tr key={row.customerID + row.customerFirstName + ind}>
-          <td>{row.customerID || ind + 1}</td>
-          <td>{row.customerFirstName || "N/A"}</td>
-          <td>{Intl.NumberFormat("en", {}).format(row.orderValue)}</td>
-          <td>{row.validity}</td>
-          <td>{Intl.NumberFormat("en", {}).format(row.price)}</td>
-        </tr>
-      ))}
+        {options.map((row, ind) => (
+          <tr key={row.customerID + row.customerFirstName + ind}>
+            <td>{row.customerID || ind + 1}</td>
+            <td>{row.customerFirstName || "N/A"}</td>
+            <td>{Intl.NumberFormat("en", {}).format(row.orderValue)}</td>
+            <td>{row.validity}</td>
+            <td>{Intl.NumberFormat("en", {}).format(row.price)}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
